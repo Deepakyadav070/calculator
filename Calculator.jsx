@@ -5,7 +5,7 @@ function Calculator() {
   let previousInput = '';
   let operation = null;
 
-  function appendToDisplay(number) {
+  const appendToDisplay = (number) => {
     if (currentInput === '0' && number !== '.') {
       currentInput = '';
     }
@@ -13,7 +13,7 @@ function Calculator() {
     updateDisplay();
   }
 
-  function setOperation(op) {
+  const setOperation = (op) => {
     if (currentInput === '') return;
     if (previousInput !== '') {
       calculateResult();
@@ -23,7 +23,7 @@ function Calculator() {
     currentInput = '';
   }
 
-  function calculateResult() {
+  const calculateResult = () => {
     let result;
     const prev = parseFloat(previousInput);
     const current = parseFloat(currentInput);
@@ -53,14 +53,14 @@ function Calculator() {
     updateDisplay();
   }
 
-  function clearDisplay() {
+  const clearDisplay = () => {
     currentInput = '';
     previousInput = '';
     operation = null;
     updateDisplay();
   }
 
-  function updateDisplay() {
+  const updateDisplay = () => {
     const display = document.getElementById('display');
     display.value = currentInput || '0';
   }
